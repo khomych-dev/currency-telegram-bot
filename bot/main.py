@@ -1,0 +1,36 @@
+"""Bot entry point — initialises the dispatcher and starts long polling."""
+
+import asyncio
+import logging
+import os
+
+from aiogram import Bot, Dispatcher
+from dotenv import load_dotenv
+
+from bot.handlers import router
+
+load_dotenv()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s  %(levelname)-8s  %(name)s: %(message)s",
+)
+logger = logging.getLogger(__name__)
+
+
+async def main() -> None:
+    """Create the Bot instance and run the polling loop."""
+    token = os.getenv("BOT_TOKEN")
+    if not token:
+        raise RuntimeError("BOT_TOKEN environment variable is not set.")
+
+    bot = Bot(token=token)
+    dp = Dispatcher()
+    dp.include_router(router)
+
+    logger.info("Starting bot polling…")
+    await dp.start_polling(bot)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
