@@ -9,7 +9,6 @@ from aiogram.types import (
     KeyboardButton,
     Message,
     ReplyKeyboardMarkup,
-    ReplyKeyboardRemove,
 )
 
 from bot.api import fetch_rates, format_rates_message
