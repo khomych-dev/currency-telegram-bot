@@ -46,6 +46,28 @@ uv run python -m bot.main
 uv run pytest
 ```
 
+## Docker Deployment
+
+You can deploy the bot using Docker and Docker Compose. This is the recommended way to run the bot on a remote server.
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/khomych-dev/currency-telegram-bot.git
+cd currency-telegram-bot
+```
+
+### 2. Configure environment variables
+```bash
+cp .env.example .env
+# Edit .env and add your BOT_TOKEN
+```
+
+### 3. Build and run the container
+```bash
+docker compose up -d --build
+```
+*(Note: If your server uses the older `docker-compose` standalone tool, use `docker-compose up -d --build` instead).*
+
 ## Project Structure
 
 ```
