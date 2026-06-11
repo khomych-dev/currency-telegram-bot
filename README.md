@@ -81,8 +81,11 @@ currency-telegram-bot/
 │   ├── __init__.py
 │   ├── test_api.py      # Tests for API parsing logic
 │   └── test_handlers.py # Tests for handler message formatting
+├── .dockerignore
 ├── .env.example
 ├── .gitignore
+├── docker-compose.yml
+├── Dockerfile
 ├── pyproject.toml
 └── README.md
 ```
